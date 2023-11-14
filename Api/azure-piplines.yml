@@ -1,0 +1,87 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+ branches:
+  include:
+    - dev
+ paths:
+    exclude:
+      - 'web-ui'
+
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+  solution: '**/*.sln'
+  buildPlatform: 'Any CPU'
+  buildConfiguration: 'Release'
+  web: 'Api/GlobalSuite.Web'
+  configPath: 'Api/GlobalSuite.Web/Web.config'
+  appPath: 'Api/Tests/IntegrationTests/App.config'
+
+steps:
+- task: NuGetToolInstaller@1
+
+- task: NuGetCommand@2
+  inputs:
+    restoreSolution: '$(solution)'
+    
+    
+- task: MagicChunks@2
+  inputs:
+    sourcePath: '$(configPath)'
+    sourcePathRecurse: false
+    fileType: 'Auto'
+    targetPathType: 'source'
+    transformationType: 'json'
+    transformations: |
+      {
+       "configuration/connectionStrings/add[@name='GlobalSuitedb']/@connectionString":"Data Source=$(Db_Server);Network Library=DBMSSOCN;Initial Catalog=10.50.1600;User ID=$(Db_User);pwd=$(Db_Password);database=$(Db_Name)",
+       "configuration/appSettings/add[@key='Database']/@value":"$(Db_Name)",
+       "configuration/appSettings/add[@key='ServerName']/@value":"$(Db_Server)",
+       "configuration/appSettings/add[@key='Username']/@value":"$(Db_User)",
+       "configuration/appSettings/add[@key='Password']/@value":"$(Db_Password)",
+       "configuration/appSettings/add[@key='LogoLocation']/@value":"C:\\GlobalSuiteFolder\\logo.jpg",
+       "configuration/appSettings/add[@key='JwtKey']/@value":"$(Jwt_Key)",
+       "configuration/appSettings/add[@key='EncryptionKey']/@value":"$(Encryption_Key)",
+       "configuration/appSettings/add[@key='IsSwaggerEnabled']/@value":"true",
+       "configuration/appSettings/add[@key='AllowedOrigins']/@value":"https://web.globalsuite.ng,http://web.globalsuite.ng,http://localhost:3000,https://localhost:3000,https://globalsuite-web.vercel.app",
+       "configuration/system.web/compilation/@debug":"false",
+       "configuration/system.web/compilation/@targetFramework":"4.6.1",
+       "configuration/system.web/httpRuntime/@targetFramework":"4.6.1"
+      }
+
+- task: VSBuild@1
+  inputs:
+    solution: '$(solution)'
+    msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:DesktopBuildPackageLocation="$(build.artifactStagingDirectory)\WebApp.zip" /p:DeployIisAppPath="GlobalSuite"'
+    platform: '$(buildPlatform)'
+    configuration: '$(buildConfiguration)'
+
+#- task: MagicChunks@2
+#  inputs:
+#    sourcePath: '$(appPath)'
+#    sourcePathRecurse: true
+#    fileType: 'Auto'
+#    targetPathType: 'source'
+#    transformationType: 'json'
+#    transformations: |
+#      {
+#       "configuration/connectionStrings/GlobalSuitedb":"Data Source=$(Db_Server);Network Library=DBMSSOCN;Initial Catalog=10.50.1600;User ID=$(Db_User);pwd=$(Db_Password);database=$(Db_Name)",
+#       "configuration/appSettings/JwtKey":"$(Jwt_Key)",
+#       "configuration/appSettings/EncryptionKey":"$(Encryption_Key)"
+#      }
+#
+#- task: VSTest@2
+#  inputs:
+#    platform: '$(buildPlatform)'
+#    configuration: '$(buildConfiguration)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: 'drop'
+    publishLocation: 'Container'

@@ -1,0 +1,166 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{21FFA49C-7D5B-481E-8833-60AA975F92B6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CapitalMarket.Business</RootNamespace>
+    <AssemblyName>CapitalMarket.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>GlobalSuiteIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\..\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Allotment.cs" />
+    <Compile Include="AutoDate.cs" />
+    <Compile Include="AutoDateBank.cs" />
+    <Compile Include="AutoDateCustodian.cs" />
+    <Compile Include="AutoDateNASD.cs" />
+    <Compile Include="AutoDateProp.cs" />
+    <Compile Include="BankMargin.cs" />
+    <Compile Include="BargainSlip.cs" />
+    <Compile Include="BargainSlipBank.cs" />
+    <Compile Include="BargainSlipCustodian.cs" />
+    <Compile Include="BargainSlipNASD.cs" />
+    <Compile Include="BargainSlipProp.cs" />
+    <Compile Include="BargainTrans.cs" />
+    <Compile Include="BargainTransBank.cs" />
+    <Compile Include="BargainTransCustodian.cs" />
+    <Compile Include="BargainTransNASD.cs" />
+    <Compile Include="BargainTransProp.cs" />
+    <Compile Include="BondApplication.cs" />
+    <Compile Include="BondOffer.cs" />
+    <Compile Include="BonusDividend.cs" />
+    <Compile Include="BonusOffer.cs" />
+    <Compile Include="BranchBuySellCharge.cs" />
+    <Compile Include="Broker.cs" />
+    <Compile Include="BrokerMissing.cs" />
+    <Compile Include="Certificate.cs" />
+    <Compile Include="ChangeUnitCost.cs" />
+    <Compile Include="ChangeUnitCostMaster.cs" />
+    <Compile Include="CustMargin.cs" />
+    <Compile Include="CustMissing.cs" />
+    <Compile Include="Custodian.cs" />
+    <Compile Include="DematCertificate.cs" />
+    <Compile Include="CustomerPortfolioTransfer.cs" />
+    <Compile Include="Dividend.cs" />
+    <Compile Include="DividendHistory.cs" />
+    <Compile Include="FileHandler.cs" />
+    <Compile Include="FileHandlerBank.cs" />
+    <Compile Include="FileHandlerCustodian.cs" />
+    <Compile Include="FileHandlerNASD.cs" />
+    <Compile Include="FileHandlerProprietary.cs" />
+    <Compile Include="FileHandlerRegularBank.cs" />
+    <Compile Include="FIXReconcile.cs" />
+    <Compile Include="FullDematerialization.cs" />
+    <Compile Include="FullDematerializationMaster.cs" />
+    <Compile Include="GradComm.cs" />
+    <Compile Include="InstrumentType.cs" />
+    <Compile Include="JobOrder.cs" />
+    <Compile Include="JobOrderDocTrack.cs" />
+    <Compile Include="Market.cs" />
+    <Compile Include="MarkToMarketDetail.cs" />
+    <Compile Include="MergeCustomer.cs" />
+    <Compile Include="MergeCustomerDelete.cs" />
+    <Compile Include="OffRem.cs" />
+    <Compile Include="OTCPortfolioOpeningBalance.cs" />
+    <Compile Include="PGenTable.cs" />
+    <Compile Include="Portfolio.cs" />
+    <Compile Include="PortfolioFoxPro.cs" />
+    <Compile Include="PortfolioInternalUpdate.cs" />
+    <Compile Include="PortfolioRemoveAll.cs" />
+    <Compile Include="PortfolioUploadDate.cs" />
+    <Compile Include="PortNot.cs" />
+    <Compile Include="PortOpenBal.cs" />
+    <Compile Include="PriceDate.cs" />
+    <Compile Include="PriceDateMarkToMarket.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="PublicOffer.cs" />
+    <Compile Include="PublicReturns.cs" />
+    <Compile Include="Quote.cs" />
+    <Compile Include="QuoteMarkToMarket.cs" />
+    <Compile Include="RecomputePropSale.cs" />
+    <Compile Include="ReconcileACWithPortValue.cs" />
+    <Compile Include="Register.cs" />
+    <Compile Include="RepostTrade.cs" />
+    <Compile Include="Sector.cs" />
+    <Compile Include="SectorHeader.cs" />
+    <Compile Include="SendPortfolioToEmail.cs" />
+    <Compile Include="StkParam.cs" />
+    <Compile Include="StockCode.cs" />
+    <Compile Include="StockMissing.cs" />
+    <Compile Include="StopLoss.cs" />
+    <Compile Include="TechReconstruction.cs" />
+    <Compile Include="TransferPortUpload.cs" />
+    <Compile Include="UpdateAgentMissComm.cs" />
+    <Compile Include="Valuation.cs" />
+    <Compile Include="Verification.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Admin.Business\Admin.Business.csproj">
+      <Project>{a22f4b86-0626-4ad9-9f0c-ab188a6ba4f9}</Project>
+      <Name>Admin.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseUtility.Business\BaseUtility.Business.csproj">
+      <Project>{e38a07c8-d4db-4bc8-ba3c-bab30fa087fb}</Project>
+      <Name>BaseUtility.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CustomerManagement.Business\CustomerManagement.Business.csproj">
+      <Project>{525705e3-e611-4e9f-991c-fe1fcf2eac1c}</Project>
+      <Name>CustomerManagement.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GL.Business\GL.Business.csproj">
+      <Project>{a7b0c74d-c1e9-4655-a9df-0e9d9c2b7a61}</Project>
+      <Name>GL.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GlobalSuiteIcon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

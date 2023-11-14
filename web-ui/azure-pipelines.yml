@@ -1,0 +1,67 @@
+# ASP.NET Core (.NET Framework)
+# Build and test ASP.NET Core projects targeting the full .NET Framework.
+# Add steps that publish symbols, save build artifacts, and more:
+# https://docs.microsoft.com/azure/devops/pipelines/languages/dotnet-core
+
+trigger:
+  branches:
+    include:
+      - dev
+  paths:
+    exclude:
+      - 'Api'
+
+pool:
+  vmImage: ubuntu-latest
+
+variables:
+  dir: 'web-ui'
+  dist: 'web-ui/dist'
+
+steps:
+  - task: NodeTool@0
+    inputs:
+      versionSpec: '18.x'
+      displayName: 'Install Node.js'
+
+  - task: Npm@1
+    inputs:
+      command: 'install'
+      workingDir: '$(dir)'
+      displayName: 'Run Install'
+
+  - task: Npm@1
+    env:
+      PORT: 80
+      HOST: 'http://web.globalsuite.ng'
+    inputs:
+      command: 'custom'
+      workingDir: '$(dir)'
+      customCommand: 'run build --if-present'
+
+  - task: CopyFiles@2
+    inputs:
+      SourceFolder: '$(dir)'
+      Contents: |
+        .next/**
+        package.json
+        package-lock.json
+        node_modules/**
+        server.js
+        web.config
+      TargetFolder: '$(dist)'
+      
+  - task: ArchiveFiles@2
+    inputs:
+      rootFolderOrFile: '$(dist)'
+      includeRootFolder: false
+      archiveType: 'zip'
+      archiveFile: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      replaceExistingArchive: true
+
+  - task: PublishBuildArtifacts@1
+    displayName: 'Publish'
+    inputs:
+      PathtoPublish: '$(Build.ArtifactStagingDirectory)/$(Build.BuildId).zip'
+      ArtifactName: 'drop-web'
+      publishLocation: 'Container'

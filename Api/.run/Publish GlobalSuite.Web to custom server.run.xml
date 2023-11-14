@@ -1,0 +1,6 @@
+﻿<component name="ProjectRunConfigurationManager">
+  <configuration default="false" name="Publish GlobalSuite.Web to custom server" type="DotNetPublishAndUpload" factoryName="Publish to custom server">
+    <riderPublish configuration="Release" platform="Any CPU" runtime="Portable" server_id="dbc0e556-5717-408f-abb2-04b18941f761" serverName="App" target_framework="net48" uuid_high="5261012213510128355" uuid_low="-7367220102990830430" />
+    <method v="2" />
+  </configuration>
+</component>

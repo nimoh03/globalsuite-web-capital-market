@@ -1,0 +1,238 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{6CDCCA22-CD3F-4CB3-B3F3-8264D00FB5C3}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>GlobalSuite.Core</RootNamespace>
+    <AssemblyName>GlobalSuite.Core</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="AutoMapper, Version=10.0.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.10.1.1\lib\net461\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel">
+      <HintPath>..\..\..\..\Windows\assembly\GAC_MSIL\Microsoft.Office.Interop.Excel\15.0.0.0__71e9bce111e9429c\Microsoft.Office.Interop.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Ninject, Version=3.3.6.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
+      <HintPath>..\packages\Ninject.3.3.6\lib\net45\Ninject.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog">
+      <HintPath>..\packages\Serilog.3.0.1\lib\net462\Serilog.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.File">
+      <HintPath>..\packages\Serilog.Sinks.File.3.2.0\lib\net45\Serilog.Sinks.File.dll</HintPath>
+    </Reference>
+    <Reference Include="Serilog.Sinks.RollingFile">
+      <HintPath>..\packages\Serilog.Sinks.RollingFile.3.3.0\lib\net45\Serilog.Sinks.RollingFile.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.9\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.Caching" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.Core.5.2.9\lib\net45\System.Web.Http.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.9.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.9\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.9\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.9\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Accounting\AccountingService.cs" />
+    <Compile Include="Accounting\BatchPosting\BatchPostingFilter.cs" />
+    <Compile Include="Accounting\BatchPosting\BatchPostingResponse.cs" />
+    <Compile Include="Accounting\BatchPosting\BatchPostingService.cs" />
+    <Compile Include="Accounting\ChartOfAccounts\AccountLevelResponse.cs" />
+    <Compile Include="Accounting\ChartOfAccounts\AccountResponse.cs" />
+    <Compile Include="Accounting\ChartOfAccounts\AccountTypeResponse.cs" />
+    <Compile Include="Accounting\ChartOfAccounts\ChartOfAccountResponse.cs" />
+    <Compile Include="Accounting\ChartOfAccounts\ChartOfAccountService.cs" />
+    <Compile Include="Accounting\ChartOfAccounts\IfrsAnnualResponse.cs" />
+    <Compile Include="Accounting\CreditNoteService.cs" />
+    <Compile Include="Accounting\CustomerBalanceService.cs" />
+    <Compile Include="Accounting\GlParams\GlParamResponse.cs" />
+    <Compile Include="Accounting\GlParams\GlParamSettingService.cs" />
+    <Compile Include="Accounting\Models\CustomerBalance.cs" />
+    <Compile Include="Accounting\Models\OpeningBalanceResponse.cs" />
+    <Compile Include="Accounting\Models\StatusFilter.cs" />
+    <Compile Include="Accounting\Models\TransferFilter.cs" />
+    <Compile Include="Accounting\Models\TransferResponse.cs" />
+    <Compile Include="Accounting\SelfBalance\SelfBalanceResponse.cs" />
+    <Compile Include="Accounting\SelfBalance\SelfBalanceService.cs" />
+    <Compile Include="Accounting\TransferService.cs" />
+    <Compile Include="Accounting\DebitNoteService.cs" />
+    <Compile Include="Accounting\DepositService.cs" />
+    <Compile Include="Accounting\IAccountingService.cs" />
+    <Compile Include="Accounting\Models\CreditNoteFilter.cs" />
+    <Compile Include="Accounting\Models\CreditNoteResponse.cs" />
+    <Compile Include="Accounting\Models\DebitNoteFilter.cs" />
+    <Compile Include="Accounting\Models\DebitNoteResponse.cs" />
+    <Compile Include="Accounting\Models\DepositDetailResponse.cs" />
+    <Compile Include="Accounting\Models\DepositFilter.cs" />
+    <Compile Include="Accounting\Models\DepositResponse.cs" />
+    <Compile Include="Accounting\Models\PaymentFilter.cs" />
+    <Compile Include="Accounting\Models\PaymentResponse.cs" />
+    <Compile Include="Accounting\Models\ProductAccountResponse.cs" />
+    <Compile Include="Accounting\Models\ProductDetailResponse.cs" />
+    <Compile Include="Accounting\Models\StatusResponse.cs" />
+    <Compile Include="Accounting\OpeningBalanceService.cs" />
+    <Compile Include="Accounting\PaymentService.cs" />
+    <Compile Include="Accounting\ProductAccountService.cs" />
+    <Compile Include="Accounting\ProductService.cs" />
+    <Compile Include="Admin\AdminService.cs" />
+    <Compile Include="Admin\BankService.cs" />
+    <Compile Include="Admin\BranchService.cs" />
+    <Compile Include="Admin\Companies\CompanyResponse.cs" />
+    <Compile Include="Admin\Companies\CompanyService.cs" />
+    <Compile Include="Admin\CountryService.cs" />
+    <Compile Include="Admin\GeoPoliticalZoneService.cs" />
+    <Compile Include="Admin\IAdminService.cs" />
+    <Compile Include="Admin\LgaService.cs" />
+    <Compile Include="Admin\Models\BranchResponse.cs" />
+    <Compile Include="Admin\Models\Param.cs" />
+    <Compile Include="Admin\Models\UserFilter.cs" />
+    <Compile Include="Admin\OccupationService.cs" />
+    <Compile Include="Admin\ReligionService.cs" />
+    <Compile Include="Admin\TitleService.cs" />
+    <Compile Include="Admin\UserService.cs" />
+    <Compile Include="BaseFilter.cs" />
+    <Compile Include="BaseService.cs" />
+    <Compile Include="Caching\ICaching.cs" />
+    <Compile Include="CapitalMarket\AllotmentService.cs" />
+    <Compile Include="CapitalMarket\BrokerService.cs" />
+    <Compile Include="CapitalMarket\CustomerStockService.cs" />
+    <Compile Include="CapitalMarket\JobOrderService.cs" />
+    <Compile Include="CapitalMarket\MergeCustomerService.cs" />
+    <Compile Include="CapitalMarket\StockService.cs" />
+    <Compile Include="CapitalMarket\TradingService.cs" />
+    <Compile Include="Constants.cs" />
+    <Compile Include="CoreModule.cs" />
+    <Compile Include="Customers\CustomerService.cs" />
+    <Compile Include="Customers\CustomerTypeService.cs" />
+    <Compile Include="Customers\ICustomerService.cs" />
+    <Compile Include="Customers\KycService.cs" />
+    <Compile Include="Customers\Models\CustomerFIlter.cs" />
+    <Compile Include="Customers\Models\PublicCustomer.cs" />
+    <Compile Include="Exceptions\ApiException.cs" />
+    <Compile Include="Exceptions\AppException.cs" />
+    <Compile Include="Exceptions\AppUnAuthorizedException.cs" />
+    <Compile Include="Exceptions\AppValidationException.cs" />
+    <Compile Include="Exceptions\DuplicateException.cs" />
+    <Compile Include="Exceptions\EntityNotFoundException.cs" />
+    <Compile Include="Exceptions\UserFriendlyException.cs" />
+    <Compile Include="Exceptions\ValidationError.cs" />
+    <Compile Include="Helpers\DataTableExtensions.cs" />
+    <Compile Include="Helpers\DateHelper.cs" />
+    <Compile Include="Helpers\EnumHelper.cs" />
+    <Compile Include="Helpers\EnumObject.cs" />
+    <Compile Include="Helpers\ResponseResult.cs" />
+    <Compile Include="Helpers\StringEnumExtension.cs" />
+    <Compile Include="Hr\EmployeeService.cs" />
+    <Compile Include="Hr\Models\EmployeePoco.cs" />
+    <Compile Include="Hr\IHrService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Sessions\IAppSession.cs" />
+    <Compile Include="CapitalMarket\CapitalMarketParam.cs" />
+    <Compile Include="CapitalMarket\CscsStockPositionFoxProService.cs" />
+    <Compile Include="CapitalMarket\DailyTradePullOutService.cs" />
+    <Compile Include="CapitalMarket\FixEndOfDayService.cs" />
+    <Compile Include="CapitalMarket\FixPullOutService.cs" />
+    <Compile Include="CapitalMarket\ITradingService.cs" />
+    <Compile Include="CapitalMarket\NasdAutomatedPostingService.cs" />
+    <Compile Include="CapitalMarket\NasdPullOutService.cs" />
+    <Compile Include="CapitalMarket\PortfolioHoldBalanceService.cs" />
+    <Compile Include="CapitalMarket\PortfolioInternalUpdateService.cs" />
+    <Compile Include="CapitalMarket\TradeValuationService.cs" />
+    <Compile Include="CapitalMarket\DailyTradeAutomatedPostingService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Business\Admin.Business\Admin.Business.csproj">
+      <Project>{A22F4B86-0626-4AD9-9F0C-AB188A6BA4F9}</Project>
+      <Name>Admin.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business\BaseUtility.Business\BaseUtility.Business.csproj">
+      <Project>{E38A07C8-D4DB-4BC8-BA3C-BAB30FA087FB}</Project>
+      <Name>BaseUtility.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business\CapitalMarket.Business\CapitalMarket.Business.csproj">
+      <Project>{21ffa49c-7d5b-481e-8833-60aa975f92b6}</Project>
+      <Name>CapitalMarket.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business\CustomerManagement.Business\CustomerManagement.Business.csproj">
+      <Project>{525705e3-e611-4e9f-991c-fe1fcf2eac1c}</Project>
+      <Name>CustomerManagement.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business\GL.Business\GL.Business.csproj">
+      <Project>{A7B0C74D-C1E9-4655-A9DF-0E9D9C2B7A61}</Project>
+      <Name>GL.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Business\HR.Business\HR.Business.csproj">
+      <Project>{AC863E8E-D1E2-45CA-AE87-B1C6DADD0181}</Project>
+      <Name>HR.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

@@ -1,0 +1,81 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Threading.Tasks;
+using BaseUtility.Business;
+using GL.Business;
+using GlobalSuite.Core.Accounting.BatchPosting;
+using GlobalSuite.Core.Accounting.Models;
+using GlobalSuite.Core.Helpers;
+
+namespace GlobalSuite.Core.Accounting
+{
+    public interface IAccountingService
+    {
+        Task<ResponseResult> EditGlParam(GLParam oGlParam);
+        Task<GlParamResponse> GetGlParam();
+        Task<List<AccountResponse>> GetChartOfAccounts();
+        Task<List<ChartOfAccountResponse>> GetAllChildAccount(string branchCode);
+        Task<ResponseResult> ChartOfAccount(bool isInternal,Account oAccount);
+        Task<ResponseResult> DeleteChartOfAccount(string code, string accountId, string branchCode);
+        Task<AccountResponse> GetChartOfAccount( string accountId);
+        Task<ResponseResult> OpeningBalance(CustOBal oCustomerBalance);
+        Task<ResponseResult> PostOpeningBalance(string code);
+        Task<ResponseResult> DebitNote(DNote oDNote);
+        Task<ResponseResult> PostDebitNote(string code);
+        Task<DebitNoteResponse> GetDebitNote(string code, DataGeneral.PostStatus postStatus);
+        Task<ResponseResult> CreditNote(CNote oCNote);
+        Task<ResponseResult> PostCreditNote(string code);
+        Task<CreditNoteResponse> GetCreditNote(string code, DataGeneral.PostStatus postStatus);
+        Task<List<PaymentResponse>> GetPayments(PaymentFilter filter);
+        Task<ResponseResult> CreatePayment(Payment oPayment);
+        Task<ResponseResult> PostPayment(string code);
+        Task<PaymentResponse> GetPayment(string code, DataGeneral.PostStatus postStatus);
+        Task<ResponseResult> DeleteDeposit(string code);
+        Task<ResponseResult> EditDeposit(Deposit oDeposit);
+        Task<ResponseResult> Deposit(Deposit oDeposit);
+        Task<ResponseResult> PostDeposit(string code);
+        Task<ResponseResult> ReverseDeposit(string code);
+        Task<DepositResponse> GetDeposit(string code);
+        Task<List<DepositResponse>> GetDeposits(DepositFilter filter);
+        Task<List<Product>> GetProducts( );
+        Task<List<ProductClass>> GetAllProductClass( );
+        Task<List<ProductType>> GetAllProductTypes( );
+        Task<List<ProductAccountResponse>> GetAllSubsidiaryAccounts(string productCode, string branchCode, string customerName=" ");
+        Task<List<CreditNoteResponse>> GetCreditNotes(CreditNoteFilter filter);
+        Task<List<DebitNoteResponse>> GetDebitNotes(DebitNoteFilter filter);
+        Task<ResponseResult> ReverseCreditNote(string code);
+        Task<ResponseResult> ReverseDebitNote(string code);
+        Task<ResponseResult> CreateTransfer(CustomerTransfer oCustomerTransfer);
+        Task<ResponseResult> PostTransfer(string code);
+        Task<ResponseResult> ReverseTransfer(string code);
+        Task<List<TransferResponse>> GetTransfers(TransferFilter filter);
+        Task<TransferResponse> GetTransfer(string code, DataGeneral.PostStatus status);
+        Task<List<OpeningBalanceResponse>> GetOpeningBalances(StatusFilter filter);
+        Task<OpeningBalanceResponse> GetOpeningBalance(string code, DataGeneral.PostStatus status);
+        Task<ResponseResult> ReverseOpeningBalance(string code);
+        Task<CustomerBalance> GetCustomerBalance(string customerId, string productId);
+        Task<ResponseResult> CreateSelfBalance(SelfBal oSelfBal);
+        Task<ResponseResult> DeleteSelfBalance(string code);
+        Task<ResponseResult> PostSelfBalance( string code);
+        Task<List<SelfBalanceResponse>> GetSelfBalances(StatusFilter filter);
+        Task<SelfBalanceResponse> GetSelfBalance(string code, DataGeneral.PostStatus status);
+        Task<ResponseResult> CreateBatchPosting(DateTime effectiveDate, List<BatchSpreadSheet> spreadSheets);
+        Task<ResponseResult> PostBatchPosting(long batchId);
+        Task<ResponseResult> ReverseBatchPosting(string batchNo);
+        Task<ResponseResult> DeleteBatchPosting(long batchNo);
+        Task<BatchPostingDetail> GetBatchPosting(long batchNo, DataGeneral.PostStatus status);
+        Task<List<BatchPostingResponse>> GetBatchPostings(BatchPostingFilter filter);
+        Task<List<AccountLevelResponse>> GetAllAccountLevels();
+        Task<List<AccountTypeResponse>> GetAllAccountTypes();
+        Task<List<AccountResponse>> GetParentByLevel(int level, string branchCode=null);
+        Task<List<IfrsAnnualResponse>> GetAllIncomeStateAnnual();
+        Task<List<IfrsAnnualResponse>> GetAllSocf();
+        Task<List<IfrsAnnualResponse>> GetAllSofp();
+        Task<List<IfrsAnnualResponse>> GetAllSocie();
+        Task<ResponseResult> EditCreditNote(CNote oCNote);
+        Task<ResponseResult> EditDebitNote(DNote oDNote);
+        Task<ResponseResult> EditPayment(Payment oPayment);
+        Task<ResponseResult> EditSelfBalance(SelfBal oSelfBal);
+        Task<ResponseResult> EditOpeningBalance(CustOBal oCustomerBalance);
+    }
+}

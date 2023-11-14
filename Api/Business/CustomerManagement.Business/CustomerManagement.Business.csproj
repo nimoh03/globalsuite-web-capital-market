@@ -1,0 +1,100 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{525705E3-E611-4E9F-991C-FE1FCF2EAC1C}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>CustomerManagement.Business</RootNamespace>
+    <AssemblyName>CustomerManagement.Business</AssemblyName>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>GlobalSuiteIcon.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Common">
+      <HintPath>..\..\packages\EnterpriseLibrary.Common.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.EnterpriseLibrary.Data">
+      <HintPath>..\..\packages\EnterpriseLibrary.Data.6.0.1304.0\lib\NET45\Microsoft.Practices.EnterpriseLibrary.Data.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ContactPerson.cs" />
+    <Compile Include="Director.cs" />
+    <Compile Include="DirectorBank.cs" />
+    <Compile Include="DirectorEmployer.cs" />
+    <Compile Include="DirectorExtraInformation.cs" />
+    <Compile Include="DirectorNextOfKin.cs" />
+    <Compile Include="CustomerType.cs" />
+    <Compile Include="Customer.cs" />
+    <Compile Include="CustomerBank.cs" />
+    <Compile Include="CustomerEmployer.cs" />
+    <Compile Include="CustomerExtraInformation.cs" />
+    <Compile Include="CustomerNextOfKin.cs" />
+    <Compile Include="PlaceAccountOnLien.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Asset.Business\Asset.Business.csproj">
+      <Project>{1cd60b6a-88fd-49c8-8788-57cff06a588e}</Project>
+      <Name>Asset.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Bank.Business\Bank.Business.csproj">
+      <Project>{cacb029a-4bb0-449f-a882-fb81644e494d}</Project>
+      <Name>Bank.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\BaseUtility.Business\BaseUtility.Business.csproj">
+      <Project>{e38a07c8-d4db-4bc8-ba3c-bab30fa087fb}</Project>
+      <Name>BaseUtility.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GL.Business\GL.Business.csproj">
+      <Project>{a7b0c74d-c1e9-4655-a9df-0e9d9c2b7a61}</Project>
+      <Name>GL.Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\HR.Business\HR.Business.csproj">
+      <Project>{ac863e8e-d1e2-45ca-ae87-b1c6dadd0181}</Project>
+      <Name>HR.Business</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GlobalSuiteIcon.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
